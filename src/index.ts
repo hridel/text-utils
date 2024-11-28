@@ -64,3 +64,13 @@ export function slug(
 export function ascii(text: string): string {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
+
+/**
+ * Removes all HTML tags from the input string and returns plain text.
+ *
+ * @param html - The HTML string to be stripped of tags.
+ * @returns The plain text without any HTML tags.
+ */
+export function stripHtmlTags(html: string): string {
+  return html.replace(/<\/?[^>]+(>|$)/g, "");
+}

@@ -91,6 +91,24 @@ import { ascii } from '@hridel/text-utils';
 console.log(ascii('café')); // Output: 'cafe'
 ```
 
+### `stripHtmlTags`
+
+Removes all HTML tags from the input string and returns plain text.
+
+**Parameters:**
+- `html` (string): The HTML string to be stripped of tags.
+
+**Returns:**
+- (string): The plain text without any HTML tags.
+
+**Example:**
+
+```typescript
+import { stripHtmlTags } from '@hridel/text-utils';
+
+console.log(stripHtmlTags('<p>Hello <strong>World</strong>!</p>')); // Output: 'Hello World!'
+```
+
 ## License
 
 This project is licensed under the Apache-2.0 License.
