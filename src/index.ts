@@ -74,3 +74,37 @@ export function ascii(text: string): string {
 export function stripHtmlTags(html: string): string {
   return html.replace(/<\/?[^>]+(>|$)/g, "");
 }
+
+/**
+ * Shortens the given text to a specified maximum length, ensuring that words are not split.
+ *
+ * @param text - The text to be shortened.
+ * @param maxLength - The maximum length of the shortened text.
+ * @param addEllipsis - Optional boolean indicating whether to add ellipsis (…) at the end. Default is true.
+ * @returns The shortened text.
+ */
+export function shortenText(text: string, maxLength: number, addEllipsis: boolean = true): string {
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  const ellipsis = addEllipsis ? '…' : '';
+  const adjustedMaxLength = maxLength - ellipsis.length;
+
+  if (adjustedMaxLength <= 0) {
+    return ellipsis;
+  }
+
+  const words = text.split(' ');
+  let result = '';
+
+  for (const word of words) {
+    if ((result + word).length > adjustedMaxLength) {
+      break;
+    }
+    result += (result ? ' ' : '') + word;
+  }
+
+  return result + ellipsis;
+}
+

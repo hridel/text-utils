@@ -109,6 +109,30 @@ import { stripHtmlTags } from '@hridel/text-utils';
 console.log(stripHtmlTags('<p>Hello <strong>World</strong>!</p>')); // Output: 'Hello World!'
 ```
 
+
+### `shortenText`
+
+Shortens the given text to a specified maximum length, ensuring that words are not split.
+
+**Parameters:**
+- `text` (string): The text to be shortened.
+- `maxLength` (number): The maximum length of the shortened text.
+- `addEllipsis` (boolean, optional): Indicates whether to add ellipsis (…) at the end. Default is `true`.
+
+**Returns:**
+- (string): The shortened text.
+
+**Example:**
+
+```typescript
+import { shortenText } from '@hridel/text-utils';
+
+const originalText = "This is an example of a long sentence that needs to be shortened.";
+const shortenedText = shortenText(originalText, 25);
+console.log(shortenedText); // Output: "This is an example…"
+```
+
+
 ## License
 
 This project is licensed under the Apache-2.0 License.
